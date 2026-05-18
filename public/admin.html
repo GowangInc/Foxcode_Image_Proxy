@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Gallery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="admin-login-screen" class="screen active">
+      <div class="card">
+        <h1>Admin</h1>
+        <p class="subtitle">Enter admin password</p>
+        <form id="admin-login-form">
+          <input type="password" id="admin-password-input" placeholder="Password" autofocus>
+          <input type="text" id="admin-enrollment-code-input" placeholder="Enrollment code (for new browser only)" inputmode="numeric" autocomplete="one-time-code" maxlength="12">
+          <button type="submit">Enter</button>
+        </form>
+        <div id="admin-login-error" class="error-message hidden"></div>
+      </div>
+    </div>
+
+    <div id="admin-gallery-screen" class="screen">
+      <header>
+        <span class="logo">IMG Admin</span>
+        <span class="student-label" id="admin-count-label"></span>
+        <a class="gallery-download" href="/gallery" target="_blank">Public Gallery</a>
+        <button id="admin-logout-btn" class="btn-ghost">Lock</button>
+      </header>
+
+      <div class="admin-filters">
+        <input type="text" id="filter-input" placeholder="Search by student or prompt...">
+        <select id="status-filter">
+          <option value="all">All status</option>
+          <option value="complete">Complete</option>
+          <option value="failed">Failed</option>
+          <option value="queued">Queued</option>
+        </select>
+        <select id="student-filter">
+          <option value="all">All students</option>
+        </select>
+      </div>
+
+      <div class="admin-actions">
+        <button id="clear-all-btn" class="btn-danger btn-small">Clear All</button>
+        <button id="clear-failed-btn" class="btn-danger btn-small">Clear Failed</button>
+        <button id="clear-completed-btn" class="btn-danger btn-small">Clear Completed</button>
+        <button id="clear-queued-btn" class="btn-danger btn-small">Clear Queued</button>
+      </div>
+
+      <section class="admin-panel student-panel">
+        <div class="section-heading-row">
+          <h2>Student Management</h2>
+          <button id="refresh-students-btn" class="btn-small">Refresh</button>
+        </div>
+        <p class="panel-help">View approved students, who is currently active, pending approval requests, and blocked students.</p>
+
+        <div class="student-grid">
+          <div class="student-column">
+            <h3>Approved</h3>
+            <div id="approved-students-list" class="student-list"><p class="gallery-empty">Loading...</p></div>
+          </div>
+          <div class="student-column">
+            <h3>Active</h3>
+            <div id="active-students-list" class="student-list"><p class="gallery-empty">Loading...</p></div>
+          </div>
+          <div class="student-column">
+            <h3>Pending</h3>
+            <div id="pending-students-list" class="student-list"><p class="gallery-empty">Loading...</p></div>
+          </div>
+          <div class="student-column">
+            <h3>Blocked</h3>
+            <div id="blocked-students-list" class="student-list"><p class="gallery-empty">Loading...</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-panel moderation-panel">
+        <div class="section-heading-row">
+          <h2>Moderation</h2>
+          <select id="moderation-filter">
+            <option value="pending">Needs review</option>
+            <option value="rejected">Rejected</option>
+            <option value="all">All held images</option>
+          </select>
+        </div>
+        <p class="panel-help">Flagged images are hidden from the public gallery until approved.</p>
+        <div id="moderation-list" class="moderation-list">
+          <p class="gallery-empty">No images need review.</p>
+        </div>
+        <details class="filter-editor">
+          <summary>Edit content filter terms</summary>
+          <label>Blocked terms, one per line</label>
+          <textarea id="blocked-terms-input" rows="6"></textarea>
+          <label>Blocked regex patterns, one per line</label>
+          <textarea id="blocked-patterns-input" rows="4"></textarea>
+          <button id="save-filters-btn" class="btn-small">Save Filters</button>
+        </details>
+      </section>
+
+      <section class="admin-panel">
+        <div class="section-heading-row">
+          <h2>Admin Browser Access</h2>
+          <div class="admin-inline-actions">
+            <button id="generate-admin-code-btn" class="btn-small">Generate Add-Browser Code</button>
+            <button id="clear-admin-tokens-btn" class="btn-danger btn-small">Clear Trusted Browsers</button>
+          </div>
+        </div>
+        <p class="panel-help">This admin page requires the password plus a trusted browser token after enrollment.</p>
+        <div id="admin-enrollment-code" class="enrollment-code hidden"></div>
+        <div id="admin-token-list" class="token-list">
+          <p class="gallery-empty">No trusted browsers loaded.</p>
+        </div>
+      </section>
+
+      <div id="queue-section">
+        <h2>Queue Management</h2>
+        <div id="admin-queue-list" class="queue-list">
+          <p class="gallery-empty">No active jobs.</p>
+        </div>
+      </div>
+
+      <div id="admin-gallery" class="gallery admin-gallery">
+        <p id="admin-gallery-empty" class="gallery-empty">No images yet.</p>
+      </div>
+    </div>
+
+    <div id="lightbox" class="lightbox hidden">
+      <div class="lightbox-backdrop"></div>
+      <img id="lightbox-img" src="" alt="">
+      <button id="lightbox-close" class="lightbox-close">&times;</button>
+    </div>
+  </div>
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Generator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="signin-screen" class="screen active">
+      <div class="card">
+        <h1>Image Generator</h1>
+        <p class="subtitle">Enter your name to begin</p>
+        <form id="signin-form">
+          <input type="text" id="name-input" placeholder="Your name" autocomplete="off" autofocus maxlength="40">
+          <button type="submit" id="signin-btn">Start</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="main-screen" class="screen">
+      <header>
+        <span class="logo">IMG</span>
+        <span class="student-label" id="student-label"></span>
+        <a class="gallery-download" href="/gallery" target="_blank">Class Gallery</a>
+        <button id="logout-btn" class="btn-ghost">Sign out</button>
+      </header>
+
+      <div id="generator-section">
+        <div class="card prompt-card">
+          <h2>Create an image</h2>
+          <form id="prompt-form">
+            <textarea id="prompt-input" placeholder="Describe the image you want to create..." rows="3" maxlength="1000"></textarea>
+            <div class="form-row" style="margin-top:0.5rem">
+              <label class="provider-label">Provider:</label>
+              <select id="provider-select">
+                <option value="auto">Auto (Recommended)</option>
+                <option value="foxcode">Foxcode</option>
+                <option value="gemini">Gemini</option>
+              </select>
+              <span class="char-count" id="char-count">0 / 1000</span>
+              <button type="submit" id="generate-btn" disabled>Generate</button>
+            </div>
+          </form>
+          <div id="queue-status" class="queue-status hidden">
+            <div class="queue-spinner"></div>
+            <span id="queue-message"></span>
+          </div>
+          <div id="error-message" class="error-message hidden"></div>
+        </div>
+      </div>
+
+      <div id="queue-section" class="hidden">
+        <h2>Your Queue</h2>
+        <p class="panel-help">This updates live as students submit images.</p>
+        <div id="queue-list" class="queue-list">
+          <p class="gallery-empty">No active jobs.</p>
+        </div>
+      </div>
+
+      <div id="gallery-section">
+        <h2>Your Gallery</h2>
+        <div id="gallery" class="gallery">
+          <p id="gallery-empty" class="gallery-empty">Images you create will appear here.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="api-warning" class="api-warning hidden">
+      <span>API key not configured — image generation disabled</span>
+    </div>
+
+    <div id="lightbox" class="lightbox hidden">
+      <div class="lightbox-backdrop"></div>
+      <img id="lightbox-img" src="" alt="">
+      <button id="lightbox-close" class="lightbox-close">&times;</button>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

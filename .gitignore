@@ -1,0 +1,8 @@
+node_modules/
+data/
+images/
+*.log
+.pid
+.DS_Store
+.env
+.screenshots/

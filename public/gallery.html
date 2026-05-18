@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Gallery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="public-gallery-page">
+  <div id="app" class="wide-app">
+    <header>
+      <span class="logo">Class Gallery</span>
+      <span class="student-label">Approved images from our classroom</span>
+      <a class="gallery-download" href="/">Create</a>
+    </header>
+
+    <main class="public-gallery-shell">
+      <section class="public-hero card">
+        <div>
+          <p class="eyebrow">Student artwork</p>
+          <h1>Images created in class</h1>
+          <p class="subtitle">Only teacher-approved images appear here.</p>
+        </div>
+        <button id="refresh-gallery-btn" class="btn-small">Refresh</button>
+      </section>
+
+      <div class="admin-filters public-filters">
+        <input type="text" id="public-filter-input" placeholder="Search by student or prompt...">
+        <select id="public-student-filter">
+          <option value="all">All students</option>
+        </select>
+      </div>
+
+      <div id="public-gallery" class="gallery public-gallery">
+        <p id="public-gallery-empty" class="gallery-empty">No approved images yet.</p>
+      </div>
+    </main>
+
+    <div id="lightbox" class="lightbox hidden">
+      <div class="lightbox-backdrop"></div>
+      <img id="lightbox-img" src="" alt="">
+      <button id="lightbox-close" class="lightbox-close">&times;</button>
+    </div>
+  </div>
+  <script src="/gallery.js"></script>
+</body>
+</html>
