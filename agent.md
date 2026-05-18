@@ -132,3 +132,10 @@ Each generated image should have at least:
 - Browser hardware IDs are not available in standard web browsers.
 - Prompt filtering is keyword/pattern-based and should not be treated as perfect content safety.
 - The queue is serial by design; adding parallel generation would require a new concurrency model.
+
+## Resume Notes
+
+- Start by reading `project.md` for the exhaustive feature list.
+- Use `.trash/` only for anonymized mock pages or temporary screenshot work.
+- Keep `docs/screenshots/` for committed README assets only.
+- Never reintroduce secrets into tracked files; rely on machine environment variables.

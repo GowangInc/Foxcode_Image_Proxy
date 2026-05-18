@@ -33,6 +33,13 @@ The screenshots below use anonymized demo data.
 
 ![Admin view](docs/screenshots/admin.png)
 
+## Resume Notes
+
+- `.trash/` is the scratch workspace for anonymized mock pages and temporary screenshots.
+- `docs/screenshots/` holds the committed screenshots used by this README.
+- Do not add `.env`, `data/`, `images/`, `.screenshots/`, or `.trash/` to Git.
+- If work needs to resume later, start by checking `agent.md` and `project.md` for the current system state and watchouts.
+
 ## Quick Start
 
 ```bash

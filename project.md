@@ -159,3 +159,10 @@ The API key must stay server-side only.
 - Browser hardware IDs are not available in standard web browsers.
 - Prompt filters are keyword/pattern based, not a complete safety system.
 - Queue is still serial; parallel generation is not implemented.
+
+## Resume Notes
+
+- `README.md` has the public-facing setup and screenshot links.
+- `agent.md` has the execution-oriented handoff notes.
+- `docs/screenshots/` contains the anonymized committed screenshots.
+- `.trash/` is ignored scratch space for mock pages and temporary assets.
