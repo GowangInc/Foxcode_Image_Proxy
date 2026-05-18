@@ -17,6 +17,22 @@ Foxcode referral link: https://foxcode.rjj.cc/auth/register?aff=82E8OC
 - **Trusted admin browsers** — Password plus trusted browser token
 - **File naming** — Every image saved with date, time, and student name prefix for easy organization
 
+## Screenshots
+
+The screenshots below use anonymized demo data.
+
+### Student View
+
+![Student view](docs/screenshots/student.png)
+
+### Public Gallery
+
+![Public gallery](docs/screenshots/public-gallery.png)
+
+### Admin View
+
+![Admin view](docs/screenshots/admin.png)
+
 ## Quick Start
 
 ```bash
